@@ -69,9 +69,10 @@
     a.bookmarklet.v1:hover { background-color: #0056b3; }
     a.bookmarklet.v2 { background-color: #28a745; }
     a.bookmarklet.v2:hover { background-color: #218838; }
-    /* New color for the advanced tool */
     a.bookmarklet.v3 { background-color: #6f42c1; } 
     a.bookmarklet.v3:hover { background-color: #5a32a3; }
+    a.bookmarklet.v4 { background-color: #dc3545; } /* New color for Claude */
+    a.bookmarklet.v4:hover { background-color: #c82333; }
   </style>
 </head>
 <body>
@@ -80,7 +81,7 @@
     <h1>סרגל הכלים שלי</h1>
 
     <!-- ====================================================== -->
-    <!--          כלי מס' 1: כללי עם כפתור צף (יציב)            -->
+    <!--            כלי מס' 1: כללי עם כפתור צף                 -->
     <!-- ====================================================== -->
     <div class="tool-section">
       <h2>1. כלי כללי להחלפת כיווניות (עם כפתור צף)</h2>
@@ -93,7 +94,7 @@
     </div>
     
     <!-- ====================================================== -->
-    <!--    כלי מס' 2: כללי ללא כפתור (מתג) - קוד משופר          -->
+    <!--          כלי מס' 2: כללי ללא כפתור (מתג)               -->
     <!-- ====================================================== -->
     <div class="tool-section">
       <h2>2. כלי כללי להחלפת כיווניות (פעולה ישירה)</h2>
@@ -106,25 +107,40 @@
     </div>
 
     <!-- ====================================================== -->
-    <!--    כלי מס' 3: AI STUDIO (באג תוקן + לוגיקה משופרת)     -->
+    <!--           כלי מס' 3: AI STUDIO המשופר                  -->
     <!-- ====================================================== -->
     <div class="tool-section">
       <h2>3. כלי משופר ל-AI Studio (תיקון RTL + חיצי ניווט)</h2>
       <p>
         כלי "הכל כלול" שתוכנן במיוחד עבור <strong>AI Studio</strong>. בלחיצה אחת, הוא מבצע שתי פעולות: <strong>(1)</strong> מתקן באופן קבוע את בעיות התצוגה בעברית בצ'אט. <strong>(2)</strong> מוסיף חיצי ניווט (↑↓) המאפשרים לדלג בקלות בין ההודעות.
       </p>
-      <a href="javascript:(()=>{const t='ai-studio-nav-container',e='custom-rtl-styles-injector',o='conditional-rtl-style-injector';if(document.getElementById(t)?.remove(),window.aiStudioNavReposition&&window.removeEventListener('resize',window.aiStudioNavReposition),document.getElementById(e)?.remove(),document.getElementById(o)?.remove(),!document.querySelector('ms-autoscroll-container'))return void alert('שגיאה: לא נמצא אזור הגלילה הראשי (`ms-autoscroll-container`).');const i=document.querySelector('ms-autoscroll-container'),n=document.createElement('div');n.id=t,Object.assign(n.style,{position:'fixed',zIndex:'9999',display:'flex',gap:'8px',opacity:'0',pointerEvents:'none',transition:'opacity .3s ease-in-out'});const d=t=>{const e=document.createElement('div');return e.textContent=t,Object.assign(e.style,{cursor:'pointer',backgroundColor:'rgba(255, 255, 255, .5)',color:'#000',border:'1px solid #000',borderRadius:'50%',width:'32px',height:'32px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'20px',userSelect:'none',backdropFilter:'blur(4px)',webkitBackdropFilter:'blur(4px)'}),e},s=d('↑'),r=d('↓');n.append(s,r),document.body.appendChild(n);const l=()=>{const t=document.querySelector('footer.not-zero-state'),e=t?t.offsetHeight+25:95,o=i.getBoundingClientRect();n.style.bottom=`${e}px`,n.style.left=`${o.left+o.width/2}px`,n.style.transform='translateX(-50%)'};l(),window.aiStudioNavReposition=l,window.addEventListener('resize',l);let a;const c=()=>{clearTimeout(a),a=setTimeout(()=>{n.style.opacity='0',n.style.pointerEvents='none'},1500)};i.addEventListener('scroll',()=>{n.style.opacity='0.8',n.style.pointerEvents='auto',c()}),n.addEventListener('mouseenter',()=>clearTimeout(a)),n.addEventListener('mouseleave',c);const p=t=>{const e=Array.from(i.querySelectorAll('ms-chat-turn'));if(!e.length)return;const o=i.getBoundingClientRect();let n=-1,d=0;e.forEach((t,i)=>{const s=t.getBoundingClientRect(),r=Math.max(s.top,o.top),l=Math.min(s.bottom,o.bottom);Math.max(0,l-r)>d&&(d=Math.max(0,l-r),n=i)}),n=-1==n?0:n;const s='up'===t?n-1:n+1;e[s]&&e[s].scrollIntoView({behavior:'smooth',block:'nearest'})};s.addEventListener('click',()=>p('up')),r.addEventListener('click',()=>p('down'));const u=document.createElement('style');u.id=e,u.textContent='ms-chat-turn:not(:has(ms-thought-chunk)) .chat-turn-container,div.user-prompt-container,div.text-wrapper {direction: rtl !important;text-align: right !important;}ms-code-block, ms-code-block pre, ms-code-block code {direction: ltr !important;text-align: left !important;}ms-cmark-node ol, ms-cmark-node ul {padding-right: 20px !important;padding-left: 0 !important;}',document.head.appendChild(u),document.documentElement.classList.contains('translated-rtl')&&(()=>{const t=document.createElement('style');t.id=o,t.textContent='ms-chat-turn:has(ms-thought-chunk) .chat-turn-container {direction: rtl !important;text-align: right !important;}',document.head.appendChild(t)})})();" class="bookmarklet v3" draggable="true">
+      <a href="javascript:(()=>{const t='ai-studio-nav-container',e='custom-rtl-styles-injector',o='conditional-rtl-style-injector';if(document.getElementById(t)?.remove(),window.aiStudioNavReposition&&window.removeEventListener('resize',window.aiStudioNavReposition),document.getElementById(e)?.remove(),document.getElementById(o)?.remove(),!document.querySelector('ms-autoscroll-container'))return void alert('שגיאה: לא נמצא אזור הגלילה הראשי (`ms-autoscroll-container`).');const i=document.querySelector('ms-autoscroll-container'),n=document.createElement('div');n.id=t,Object.assign(n.style,{position:'fixed',zIndex:'9999',display:'flex',gap:'8px',opacity:'0',pointerEvents:'none',transition:'opacity .3s ease-in-out'});const d=t=>{const e=document.createElement('div');return e.textContent=t,Object.assign(e.style,{cursor:'pointer',backgroundColor:'rgba(255, 255, 255, .5)',color:'#000',border:'1px solid #000',borderRadius:'50%',width:'32px',height:'32px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'20px',userSelect:'none',backdropFilter:'blur(4px)',webkitBackdropFilter:'blur(4px)'}),e},s=d('↑'),r=d('↓');n.append(s,r),document.body.appendChild(n);const l=()=>{const t=document.querySelector('footer.not-zero-state'),e=t?t.offsetHeight+25:95,o=i.getBoundingClientRect();n.style.bottom=`${e}px`,n.style.left=`${o.left+o.width/2}px`,n.style.transform='translateX(-50%)'};l(),window.aiStudioNavReposition=l,window.addEventListener('resize',l);let a;const c=()=>{clearTimeout(a),a=setTimeout(()=>{n.style.opacity='0',n.style.pointerEvents='none'},1500)};i.addEventListener('scroll',()=>{n.style.opacity='0.8',n.style.pointerEvents:'auto',c()}),n.addEventListener('mouseenter',()=>clearTimeout(a)),n.addEventListener('mouseleave',c);const p=t=>{const e=Array.from(i.querySelectorAll('ms-chat-turn'));if(!e.length)return;const o=i.getBoundingClientRect();let n=-1,d=0;e.forEach((t,i)=>{const s=t.getBoundingClientRect(),r=Math.max(s.top,o.top),l=Math.min(s.bottom,o.bottom);Math.max(0,l-r)>d&&(d=Math.max(0,l-r),n=i)}),n=-1==n?0:n;const s='up'===t?n-1:n+1;e[s]&&e[s].scrollIntoView({behavior:'smooth',block:'nearest'})};s.addEventListener('click',()=>p('up')),r.addEventListener('click',()=>p('down'));const u=document.createElement('style');u.id=e,u.textContent='ms-chat-turn:not(:has(ms-thought-chunk)) .chat-turn-container,div.user-prompt-container,div.text-wrapper {direction: rtl !important;text-align: right !important;}ms-code-block, ms-code-block pre, ms-code-block code {direction: ltr !important;text-align: left !important;}ms-cmark-node ol, ms-cmark-node ul {padding-right: 20px !important;padding-left: 0 !important;}',document.head.appendChild(u),document.documentElement.classList.contains('translated-rtl')&&(()=>{const t=document.createElement('style');t.id=o,t.textContent='ms-chat-turn:has(ms-thought-chunk) .chat-turn-container {direction: rtl !important;text-align: right !important;}',document.head.appendChild(t)})})();" class="bookmarklet v3" draggable="true">
         גרור אותי (AI Studio משופר) ←
       </a>
     </div>
+    
+    <!-- ====================================================== -->
+    <!--         כלי מס' 4: כלי ייעודי ל-Claude (מתג)            -->
+    <!-- ====================================================== -->
+    <div class="tool-section">
+      <h2>4. כלי ייעודי ל-Claude (מתג RTL)</h2>
+      <p>
+        כלי זה מיועד ספציפית לממשק הצ'אט של <strong>Claude</strong>. הסימנייה פועלת כ"מתג": לחיצה ראשונה מפעילה תיקוני עיצוב מותאמים לעברית (כיוון טקסט, רשימות, אייקונים), ולחיצה שנייה מכבה אותם ומחזירה את התצוגה למקור.
+      </p>
+      <a href="javascript:(()=>{const e='claude-rtl-fix';let t=document.getElementById(e);t?t.remove():(t=document.createElement('style'),t.id=e,t.innerHTML='.font-claude-message,[data-testid=user-message],.whitespace-pre-wrap,p,li{direction:rtl!important;text-align:right!important;unicode-bidi:plaintext!important}pre,code,kbd,samp{direction:ltr!important;text-align:left!important;unicode-bidi:normal!important}ol,ul{padding-right:2rem!important;padding-left:1rem!important}.flex.items-start.gap-1{flex-direction:row-reverse!important}',document.head.appendChild(t))})();" class="bookmarklet v4" draggable="true">
+        גרור אותי (Claude RTL) ←
+      </a>
+    </div>
+
 
     <h3>היסטוריית גרסאות</h3>
     <p style="text-align: center; font-size: 0.9rem; opacity: 0.8;">
-      גירסה 3.0.0: תיקון באגים ושיפורי יציבות ואמינות בכלים.<br>
-      גירסה 2.0.0: שילוב כלי AI Studio מתקדם (תיקון RTL + חיצי ניווט) וארגון מחדש.<br>
-      גירסה 1.0.3: שיפור חווית משתמש - הסרת התראות וטקסט מיותר.<br>
-      גירסה 1.0.2: פיצול לארבעה כלים נפרדים לבחירת המשתמש.<br>
-      גירסה 1.0.1: שני לחצנים יציבים, כולל תיקון תאימות לאתרים מאובטחים (CSP).<br>
+      גירסה 5.0.0: הוספת כלי ייעודי ומתקדם עבור Claude.<br>
+      גירסה 4.1.0: תיקון באגים ושיפורי יציבות ואמינות בכלים.<br>
+      גירסה 4.0.0: שילוב כלי AI Studio מתקדם (תיקון RTL + חיצי ניווט) וארגון מחדש.<br>
+      גירסה 3.1.0: שיפור חווית משתמש - הסרת התראות וטקסט מיותר.<br>
+      גירסה 3.0.0: פיצול לארבעה כלים נפרדים לבחירת המשתמש.<br>
+      גירסה 2.0.0: שני לחצנים יציבים, כולל תיקון תאימות לאתרים מאובטחים (CSP).<br>
       גירסה 1.0.0: גרסת בטא ראשונית.
     </p>
   </div>
